@@ -18,7 +18,7 @@ if(isset($_GET['pid'])) {
             ?>
             <div class="list text-center" id="drinks">
                 <div class="col">
-                    <div class="thumbnail"><img src="images/<?php echo $row['img']; ?>" alt=" " class="" width="400px">
+                    <div class="thumbnail"><img src="../images/<?php echo $row['img']; ?>" alt=" " class="" width="400px">
                         <div class="caption">
                             <h3> <?php echo ucwords($row['name']); ?> </h3>
                             <p>Price: <?php echo $row['unit_price']; ?></p>

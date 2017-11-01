@@ -10,16 +10,16 @@
 
 <!-- Main Container -->
  <div class="container nav">
-     <?php require_once('includes/header.php'); ?>
+     <?php require_once(dirname(__FILE__) . '/includes/header.php'); ?>
 
-     <?php require_once('includes/search_bar.php'); ?>
+     <?php require_once(dirname(__FILE__) . '/includes/search_bar.php'); ?>
  </div>
 
 <div class="container main">
     <div class="list text-center" >
      <!-- product list -->
      <?php
-     require_once('includes/db.php');
+     require_once(dirname(__FILE__) . '/includes/db.php');
 
      mysqli_query($con,"SET NAMES 'UTF8'");
 
@@ -52,10 +52,12 @@
     <a href="includes/list_all.php" class="btn rhalf">Products List</a>
 </div>
 
-<?php require_once('includes/footer.php') ?>
+<?php require_once(dirname(__FILE__) .'/includes/footer.php') ?>
 
+<?php
+//echo $_SERVER['PHP_SELF'];
+?>
 </body>
-
 
 
 </html>
