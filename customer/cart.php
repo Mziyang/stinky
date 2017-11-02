@@ -87,7 +87,7 @@ else{
 
         //product img
         ?>
-        <a href="../includes/item_details.php?pid=<?php echo $row_cart['product_id']; ?>"><img src="images/<?php echo $row_cart['img']; ?>"></a>
+        <a href="../includes/item_details.php?pid=<?php echo $row_cart['product_id']; ?>"><img src="../images/<?php echo $row_cart['img']; ?>" width="200px"></a>
         <?php
 
         echo"PID:". $row_cart['product_id'];
