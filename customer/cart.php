@@ -115,7 +115,7 @@ else{
         setlocale(LC_MONETARY, 'en_US');
         echo "subtotal: ".money_format('%i',$row_cart['unit_price'] * $row_cart['quantity']);
         ?>
-        <a href='../includes/deletion.php?cart_id=<?php echo $row_cart['id'] ?>'>delete</a>
+        <a href='../includes/deletion.php?cart_id=<?php echo $row_cart['id'] ?>'>Delete</a>
 
         <?php
         echo "<br>";
