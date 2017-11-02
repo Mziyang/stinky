@@ -5,10 +5,10 @@
 
 
 //get customer_id
-require_once('login_check.php');
+require_once(dirname(__FILE__) .'/login_check.php');
 
 
-require_once('../includes/db.php');
+require_once(dirname(__FILE__) .'/../includes/db.php');
 $user = $_SESSION['login_user'];
 
 $sql = "select * from customers WHERE email='$user'";

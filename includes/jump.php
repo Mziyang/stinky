@@ -15,7 +15,7 @@ if (isset($_GET['msg'])&&isset($_GET['jump'])) {
     }
 
     if ($_GET['msg'] == "added_to_cart"){//include_once('some.php');    //$sql ="insert into "
-        require_once('../customer/add_to_cart.php');
+        require_once(dirname(__FILE__) .'/../customer/add_to_cart.php');
         ?>
         <div class="message">Product added to cart successfully!</div><a href="../customer/cart.php">Check Cart</a>
 <?php

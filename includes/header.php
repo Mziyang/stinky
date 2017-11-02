@@ -91,10 +91,10 @@ mysqli_free_result($result_qty);
 
 
 }
-echo "new";
-echo $_SERVER['PHP_SELF'];
-echo "<br>new";
-echo dirname(__FILE__);
-echo "<br>new";
-echo dirname($_SERVER['PHP_SELF']);
+//echo "new";
+//echo $_SERVER['PHP_SELF'];
+//echo "<br>new";
+//echo dirname(__FILE__);
+//echo "<br>new";
+//echo dirname($_SERVER['PHP_SELF']);
 ?>
