@@ -1,26 +1,27 @@
+<!--done adjust the href use ..  / -->
 <!-- Navigation -->
 <header>
 
     <nav>
         <div class="nav-logo">
-        <a href="http://localhost/stinky/index.php">Stinky</a>
+        <a href="<?php echo dirname($_SERVER['PHP_SELF']); ?><?php if(dirname($_SERVER['PHP_SELF'])!=="/stinky"){echo "/..";} ?>/index.php">Stinky</a>
         </div>
 
         <div class="nav-bar">
             <ul>
-                <?php if(empty(session_id())){ session_start();} if(empty($_SESSION['login_user'])){ ?><li><a href="http://localhost/stinky/customer/login.php">Login</a></li> <?php }
+                <?php if(empty(session_id())){ session_start();} if(empty($_SESSION['login_user'])){ ?><li><a href="<?php echo dirname($_SERVER['PHP_SELF']); ?><?php if(dirname($_SERVER['PHP_SELF'])!=="/stinky"){echo "/..";} ?>/customer/login.php">Login</a></li> <?php }
                 else{?>
                     <li class="login_last"></li>
-                    <li><a href="http://localhost/stinky/customer/profile.php"><?php echo $_SESSION['login_user']; ?> </a></li>
+                    <li><a href="<?php echo dirname($_SERVER['PHP_SELF']); ?><?php if(dirname($_SERVER['PHP_SELF'])!=="/stinky"){echo "/..";} ?>/customer/profile.php"><?php echo $_SESSION['login_user']; ?> </a></li>
                 <?php
                 }
                 ?>
 
-                <?php if(empty($_SESSION['login_user'])){ ?><li><a href="http://localhost/stinky/customer/register.php">Register</a></li>  <?php } ?>
-                <li><a href="http://localhost/stinky/customer/profile.php">Profile</a></li>
-                <li><a href="http://localhost/stinky/customer/order.php">Orders</a></li>
-                <li><a class="cart" href="http://localhost/stinky/customer/cart.php">Cart</a></li>
-                <?php if(isset($_SESSION['login_user'])){ ?><li><a href="http://localhost/stinky/customer/logout.php">Logout</a></li> <?php } ?>
+                <?php if(empty($_SESSION['login_user'])){ ?><li><a href="<?php echo dirname($_SERVER['PHP_SELF']); ?><?php if(dirname($_SERVER['PHP_SELF'])!=="/stinky"){echo "/..";} ?>/customer/register.php">Register</a></li>  <?php } ?>
+                <li><a href="<?php echo dirname($_SERVER['PHP_SELF']); ?><?php if(dirname($_SERVER['PHP_SELF'])!=="/stinky"){echo "/..";} ?>/customer/profile.php">Profile</a></li>
+                <li><a href="<?php echo dirname($_SERVER['PHP_SELF']); ?><?php if(dirname($_SERVER['PHP_SELF'])!=="/stinky"){echo "/..";} ?>/customer/order.php">Orders</a></li>
+                <li><a class="cart" href="<?php echo dirname($_SERVER['PHP_SELF']); ?><?php if(dirname($_SERVER['PHP_SELF'])!=="/stinky"){echo "/..";} ?>/customer/cart.php">Cart</a></li>
+                <?php if(isset($_SESSION['login_user'])){ ?><li><a href="<?php echo dirname($_SERVER['PHP_SELF']); ?><?php if(dirname($_SERVER['PHP_SELF'])!=="/stinky"){echo "/..";} ?>/customer/logout.php">Logout</a></li> <?php } ?>
             </ul>
         </div>
     </nav>
@@ -90,5 +91,10 @@ mysqli_free_result($result_qty);
 
 
 }
-
+echo "new";
+echo $_SERVER['PHP_SELF'];
+echo "<br>new";
+echo dirname(__FILE__);
+echo "<br>new";
+echo dirname($_SERVER['PHP_SELF']);
 ?>
