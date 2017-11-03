@@ -7,5 +7,5 @@ if(isset($_POST['post_item_qty'])&&isset($_POST['cart_id'])){
     require_once('db.php');
     $sql = "update order_details set quantity =$item_qty WHERE id = $cart_id";
 
-    if($result = mysqli_query($con, $sql)){header("location:cart.php");}
+    if($result = mysqli_query($con, $sql)){header("location:../customer/cart.php");}
 }
