@@ -43,14 +43,14 @@ if (isset($_GET['msg'])&&isset($_GET['jump'])) {
             }
             else
             {
-                window.location = '<?php echo $jump; ?>.php';
+                window.location = '../<?php echo $jump; ?>.php';
             }
         }
     </script>
 
-    <p><strong>You will be redirected to the <?php echo $jump; ?>  page in <span id="secondsDisplay"style="color: deepskyblue"></span>.</strong></p>
+    <p><strong>You will be redirected to the <?php echo $jump; ?>  page in <span id="secondsDisplay" style="color: deepskyblue"></span>.</strong></p>
 
-    <p>If you are not automatically taken there, please click on the following link: <a href="<?php echo $jump; ?>.php">Go to <?php echo $jump; ?></a></p>
+    <p>If you are not automatically taken there, please click on the following link: <a href="../<?php echo $jump; ?>.php">Go to <?php echo $jump; ?></a></p>
 
 
     <?php
