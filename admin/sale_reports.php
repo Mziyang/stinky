@@ -56,15 +56,17 @@ if(mysqli_num_rows($result) == 0){
     echo "No Results between $last_month and $date_now.";
 }
 else {
-
-
+    $total = 0;
     while ($row = mysqli_fetch_array($result)) {
         echo "Product id: " . $row['product_id'];
         echo "Name: " . $row['name'];
         echo "Qty: " . $row['Qty'];
         echo "Total: " . $row['Total'];
         echo "<br>";
+        $total = $total + $row['Total'];
     }
+    setlocale(LC_MONETARY,"en_US");
+    echo "Grand Total: ".money_format('%i',$total);
 }
 mysqli_free_result($result);
 

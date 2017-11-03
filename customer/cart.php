@@ -91,7 +91,8 @@ else{
         <?php
 
         echo"PID:". $row_cart['product_id'];
-        echo"Price:". $row_cart['unit_price'];
+        setlocale(LC_MONETARY,"en_US");
+        echo"Price:". money_format('%i',$row_cart['unit_price']);
 
         echo"Qty:". $row_cart['quantity'];
         ?>
@@ -124,7 +125,7 @@ else{
         //prepare total if order table has total field.
         //$_SESSION['total'] = $subtotal;
     }
-
+    setlocale(LC_MONETARY,"en_US");
     echo "Grand Total: ".money_format('%i',$subtotal);
     ?>
     <a href="order.php?insert_order=1" class="btn">Place order</a>

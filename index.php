@@ -37,7 +37,7 @@
                  </a>
                  <div class="caption">
                      <h3><?php echo $row['name']; ?></h3>
-                     <p>Price: <?php echo $row['unit_price']; ?></p>
+                     <p>Price: <?php setlocale(LC_MONETARY,"en_US");echo money_format('%i',$row['unit_price']); ?></p>
                      <p><a href="includes/jump.php?msg=added_to_cart&jump=index&pid=<?php echo $row['id']; ?>" class="btn">Add to Cart</a>
                          <a href="includes/item_details.php?pid=<?php echo $row['id']; ?>" class="btn">Buy</a>
                      </p>
