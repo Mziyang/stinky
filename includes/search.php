@@ -48,7 +48,7 @@ if(!empty($_GET['keyword'])) {
                 <div class="thumbnail">
 
                     <a href="item_details.php?pid=<?php echo $row['id']; ?>" class="">
-                        <img src="images/<?php echo $row['img']; ?>" alt=" " class="">
+                        <img src="../images/<?php echo $row['img']; ?>" alt=" " class="">
                     </a>
 
                     <div class="caption">
