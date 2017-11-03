@@ -10,8 +10,10 @@
         padding-right: 1%;
         padding-bottom: 10px;
 
-        width: 48%;
+        width: 350px;
         float: left;
+        display: block;
+        min-height: 350px;
     }
 
     .img{
