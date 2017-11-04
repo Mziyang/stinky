@@ -49,7 +49,7 @@ mysqli_free_result($result_cid);
 
 //get total of selected products
 //require_once ('db.php');
-$sql_qty = "SELECT SUM(quantity) AS Qty, COUNT(product_id) AS Cnt from order_details WHERE order_id = 0 AND temp_cutomer_id = $customer_id";
+$sql_qty = "SELECT SUM(quantity) AS Qty, COUNT(product_id) AS Cnt from order_details WHERE order_id IS NULL AND temp_cutomer_id = $customer_id";
 $result_qty = mysqli_query($con, $sql_qty);
 $row_qty = mysqli_fetch_array($result_qty);
 //echo $row_qty['Qty'];
