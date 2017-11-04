@@ -3,6 +3,11 @@
 
 
 
+//1. prepare to turn back this page after login
+if(!session_id()){ session_start();}
+
+$_SESSION['web_name'] = $_SERVER['PHP_SELF']."?".$_SERVER['QUERY_STRING'];
+
 
 //get customer_id
 require_once(dirname(__FILE__) .'/login_check.php');
