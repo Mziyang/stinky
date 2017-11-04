@@ -52,6 +52,7 @@ if(isset($_GET['pid'])&&isset($_GET['quantity'])){
     mysqli_free_result($result_price);
     //end
     $sql_insert = "insert into order_details(product_id, temp_cutomer_id, unit_price, quantity) VALUES ($pid,$customer_id,$price,$qty)";
+//    echo $sql_insert;
     $result_insert = mysqli_query($con,$sql_insert);
 
     //to clean GET info and support the cart number update(cart.php page needs refreshing)
@@ -64,7 +65,7 @@ if(isset($_GET['pid'])&&isset($_GET['quantity'])){
 
 //$sql_cart = "select id, product_id, unit_price, quantity FROM order_details WHERE temp_cutomer_id = $customer_id AND order_id = 0";
 //add the products.img
-$sql_cart = "select order_details.id, order_details.product_id, order_details.unit_price, order_details.quantity, products.img FROM order_details INNER JOIN products ON order_details.product_id = products.id WHERE order_details.temp_cutomer_id = $customer_id AND order_details.order_id = 0";
+$sql_cart = "select order_details.id, order_details.product_id, order_details.unit_price, order_details.quantity, products.img FROM order_details INNER JOIN products ON order_details.product_id = products.id WHERE order_details.temp_cutomer_id = $customer_id AND order_details.order_id IS NULL";
 $result_cart = mysqli_query($con,$sql_cart);
 
 
