@@ -28,6 +28,7 @@ mysqli_free_result($result);
 //end
 
 if(isset($_GET['pid'])) {
+    //pid is in the jump.php page,
     $pid = $_GET['pid'];
     //get product_price start
     $sql_price = "select unit_price from products where id = $pid";
@@ -41,7 +42,9 @@ if(isset($_GET['pid'])) {
     $sql_insert = "insert into order_details(product_id, temp_cutomer_id, unit_price, quantity) VALUES ($pid,$customer_id,$price,1)";
     $result_insert = mysqli_query($con, $sql_insert);
 
-    mysqli_close($con);
+
 
 }
+
+mysqli_close($con);
 ?>
