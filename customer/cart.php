@@ -1,5 +1,28 @@
-<title>Shopping Cart</title>
-<link href="../css/main.css" rel="stylesheet" type="text/css">
+<!doctype html>
+<html lang="en">
+<head>
+
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Shopping Cart</title>
+    
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+    <!-- My CSS -->
+    <!--    <link href="css/main.css" rel="stylesheet" type="text/css">-->
+    <link href="../css/style.css" rel="stylesheet">
+
+</head>
+<body>
+
+<!-- Navigation -->
+<?php require_once(dirname(__FILE__) . '/../includes/header.php'); ?>
+
+
 
 <?php
 
@@ -109,7 +132,7 @@ else{
             } ?>" required>
             <input type="number" name="cart_id"  value="<?php echo $row_cart['id'] ?>" hidden>
 
-            <input type="submit" value="Update" class="btn">
+            <input type="submit" value="Update" class="btn btn-outline-primary">
         </form>
         <?php
 
@@ -117,7 +140,7 @@ else{
         setlocale(LC_MONETARY, 'en_US');
         echo "subtotal: ".money_format('%i',$row_cart['unit_price'] * $row_cart['quantity']);
         ?>
-        <a href='../includes/deletion.php?cart_id=<?php echo $row_cart['id'] ?>'>Delete</a>
+        <a class="btn btn-outline-primary" href='../includes/deletion.php?cart_id=<?php echo $row_cart['id'] ?>'>Delete</a>
 
         <?php
         echo "<br>";
@@ -129,7 +152,7 @@ else{
     setlocale(LC_MONETARY,"en_US");
     echo "Grand Total: ".money_format('%i',$subtotal);
     ?>
-    <a href="order.php?insert_order=1" class="btn">Place order</a>
+    <a href="order.php?insert_order=1" class="btn btn-outline-primary">Place order</a>
     <?php
 }
 mysqli_free_result($result_cart);
