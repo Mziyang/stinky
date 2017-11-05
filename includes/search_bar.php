@@ -1,5 +1,5 @@
 <!-- search function -->
-<div class="float-right">
+<div class="search">
     <form class="" method="get" action="<?php if($_SERVER['PHP_SELF'] == "/stinky/index.php"){ echo "includes/";} ?>search.php">
         <div class="search-bar">
             <input type="text" name="keyword" class="search-text" placeholder="Product Name Required"
