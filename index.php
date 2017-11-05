@@ -14,6 +14,7 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
     <!-- My CSS -->
 <!--    <link href="css/main.css" rel="stylesheet" type="text/css">-->
+    <link href="css/style.css" rel="stylesheet">
 
 </head>
 <body>
@@ -24,19 +25,22 @@
 
 
 <!-- Page Content -->
+
+
+<!-- Page Heading -->
 <div class="container">
+
+
+
+
     <!-- Search -->
     <?php require_once(dirname(__FILE__) . '/includes/search_bar.php'); ?>
-
-    <!-- Page Heading -->
-    <H1 class="my-4">
-        PRODUCTS
-    </H1>
 
 
 
     <!-- product list -->
     <div class="row">
+
      <?php
      require_once(dirname(__FILE__) . '/includes/db.php');
 
@@ -49,7 +53,7 @@
      ?>
 
          <div class="col-lg-4 col-sm-6 portfolio-item">
-             <div class="card h-100">
+             <div class="card h-100 text-center">
 
                  <a href="includes/item_details.php?pid=<?php echo $row['id']; ?>" class="">
                  <img class="card-img-top" src="images/<?php echo $row['img']; ?>" alt=""  width="">
@@ -57,8 +61,8 @@
                  <div class="card-body">
                      <h3 class="card-title"><?php echo $row['name']; ?></h3>
                      <p>Price: <?php setlocale(LC_MONETARY,"en_US");echo money_format('%i',$row['unit_price']); ?></p>
-                     <p><a href="includes/jump.php?msg=added_to_cart&jump=index&pid=<?php echo $row['id']; ?>" class="btn">Add to Cart</a>
-                         <a href="includes/item_details.php?pid=<?php echo $row['id']; ?>" class="btn">Buy</a>
+                     <p><a href="includes/jump.php?msg=added_to_cart&jump=index&pid=<?php echo $row['id']; ?>" class="btn btn-outline-primary">Add to Cart</a>
+                         <a href="includes/item_details.php?pid=<?php echo $row['id']; ?>" class="btn btn-outline-primary">Buy</a>
                      </p>
                  </div>
              </div>
@@ -71,7 +75,7 @@
     <!-- /.row -->
 
 
-    <a href="includes/list_all.php" class="btn rhalf">Products List</a>
+    <a href="includes/list_all.php" class="btn btn-outline-primary">Products List</a>
 
 </div>
 <!-- /.container -->
