@@ -47,7 +47,7 @@ if(isset($_GET['insert_order'])){
         $_SESSION['oid'] = $oid;
         //end
 
-        $sql_update = "update order_details set order_id = $oid WHERE order_id = 0 AND temp_cutomer_id = $cid";
+        $sql_update = "update order_details set order_id = $oid WHERE order_id IS NULL AND temp_cutomer_id = $cid";
 //echo $sql;
 
         $result_update = mysqli_query($con, $sql_update);
@@ -156,7 +156,7 @@ if(isset($_GET['complete_order'])){
 ?>
 
     <form action="order.php" method="get">
-        <input type="datetime" name="update_required_date" placeholder="Required Date"
+        <input type="" name="update_required_date" placeholder="Required Date"
            value="<?php date_default_timezone_set('PRC'); echo date('Y-m-d H:i:s',strtotime("+3 days")); ?>" required autofocus>
         <input type="text" name="update_ship_address" placeholder="Ship Address" required>
         <input type="submit" name="complete_order" value="Update Latest Order" class="btn">
