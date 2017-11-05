@@ -10,8 +10,8 @@
 
             <div class="collapse navbar-collapse" id="navbarResponsive">
                 <ul class="navbar-nav ml-auto">
-                    <?php if(empty(session_id())){ session_start();} if(empty($_SESSION['login_user'])){ ?><li class="nav-item"><a class="nav-link" href="<?php echo dirname($_SERVER['PHP_SELF']); ?><?php if(dirname($_SERVER['PHP_SELF'])!=="/stinky"){echo "/..";} ?>/customer/login.php">Login</a></li> <?php }
-                    else{?>
+                    <?php if(empty(session_id())){ session_start();} if(empty($_SESSION['login_user'])){ ?> <li class="nav-item"><a class="nav-link" href="<?php echo dirname($_SERVER['PHP_SELF']); ?><?php if(dirname($_SERVER['PHP_SELF'])!=="/stinky"){echo "/..";}?>/customer/login.php">Login</a></li> <?php }
+                    else { ?>
                         <li class="nav-item login_last"></li>
                         <li class="nav-item"><a class="nav-link" href="<?php echo dirname($_SERVER['PHP_SELF']); ?><?php if(dirname($_SERVER['PHP_SELF'])!=="/stinky"){echo "/..";} ?>/customer/profile.php"><?php echo $_SESSION['login_user']; ?> </a></li>
                         <?php
@@ -28,7 +28,6 @@
 
             <div>
     </nav>
-
 
 <!-- decoration the cart show the quantity of the selected products -->
 <?php
