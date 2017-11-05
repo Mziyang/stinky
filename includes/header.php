@@ -1,31 +1,31 @@
-<!--done adjust the href use ..  / -->
 <!-- Navigation -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+    <div class="container">
+        <a class="navbar-brand" href="<?php echo dirname($_SERVER['PHP_SELF']); ?><?php if(dirname($_SERVER['PHP_SELF'])!=="/stinky"){echo "/..";} ?>/index.php">Stinky</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+            <ul class="navbar-nav ml-auto">
+                <?php if(empty(session_id())){ session_start();} if(empty($_SESSION['login_user'])){ ?> <li class="nav-item"><a class="nav-link" href="<?php echo dirname($_SERVER['PHP_SELF']); ?><?php if(dirname($_SERVER['PHP_SELF'])!=="/stinky"){echo "/..";}?>/customer/login.php">Login</a></li> <?php }
+                else { ?>
+                    <li class="nav-item login_last"></li>
+                    <li class="nav-item"><a class="nav-link" href="<?php echo dirname($_SERVER['PHP_SELF']); ?><?php if(dirname($_SERVER['PHP_SELF'])!=="/stinky"){echo "/..";} ?>/customer/profile.php"><?php echo $_SESSION['login_user']; ?> </a></li>
+                    <?php
+                }
+                ?>
 
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
-        <div class="container">
-            <a class="navbar-brand" href="<?php echo dirname($_SERVER['PHP_SELF']); ?><?php if(dirname($_SERVER['PHP_SELF'])!=="/stinky"){echo "/..";} ?>/index.php">Stinky</a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarResponsive">
-                <ul class="navbar-nav ml-auto">
-                    <?php if(empty(session_id())){ session_start();} if(empty($_SESSION['login_user'])){ ?> <li class="nav-item"><a class="nav-link" href="<?php echo dirname($_SERVER['PHP_SELF']); ?><?php if(dirname($_SERVER['PHP_SELF'])!=="/stinky"){echo "/..";}?>/customer/login.php">Login</a></li> <?php }
-                    else { ?>
-                        <li class="nav-item login_last"></li>
-                        <li class="nav-item"><a class="nav-link" href="<?php echo dirname($_SERVER['PHP_SELF']); ?><?php if(dirname($_SERVER['PHP_SELF'])!=="/stinky"){echo "/..";} ?>/customer/profile.php"><?php echo $_SESSION['login_user']; ?> </a></li>
-                        <?php
-                    }
-                    ?>
+                <?php if(empty($_SESSION['login_user'])){ ?><li class="nav-item"><a class="nav-link" href="<?php echo dirname($_SERVER['PHP_SELF']); ?><?php if(dirname($_SERVER['PHP_SELF'])!=="/stinky"){echo "/..";} ?>/customer/register.php">Register</a></li>  <?php } ?>
+                <li class="nav-item"><a class="nav-link" href="<?php echo dirname($_SERVER['PHP_SELF']); ?><?php if(dirname($_SERVER['PHP_SELF'])!=="/stinky"){echo "/..";} ?>/customer/profile.php">Profile</a></li>
+                <li class="nav-item"><a class="nav-link" href="<?php echo dirname($_SERVER['PHP_SELF']); ?><?php if(dirname($_SERVER['PHP_SELF'])!=="/stinky"){echo "/..";} ?>/customer/order.php">Orders</a></li>
+                <li class="nav-item"><a class="nav-link cart" href="<?php echo dirname($_SERVER['PHP_SELF']); ?><?php if(dirname($_SERVER['PHP_SELF'])!=="/stinky"){echo "/..";} ?>/customer/cart.php">Cart</a></li>
+                <?php if(isset($_SESSION['login_user'])){ ?><li class="nav-item"><a class="nav-link" href="<?php echo dirname($_SERVER['PHP_SELF']); ?><?php if(dirname($_SERVER['PHP_SELF'])!=="/stinky"){echo "/..";} ?>/customer/logout.php">Logout</a></li> <?php } ?>
+            </ul>
 
-                    <?php if(empty($_SESSION['login_user'])){ ?><li class="nav-item"><a class="nav-link" href="<?php echo dirname($_SERVER['PHP_SELF']); ?><?php if(dirname($_SERVER['PHP_SELF'])!=="/stinky"){echo "/..";} ?>/customer/register.php">Register</a></li>  <?php } ?>
-                    <li class="nav-item"><a class="nav-link" href="<?php echo dirname($_SERVER['PHP_SELF']); ?><?php if(dirname($_SERVER['PHP_SELF'])!=="/stinky"){echo "/..";} ?>/customer/profile.php">Profile</a></li>
-                    <li class="nav-item"><a class="nav-link" href="<?php echo dirname($_SERVER['PHP_SELF']); ?><?php if(dirname($_SERVER['PHP_SELF'])!=="/stinky"){echo "/..";} ?>/customer/order.php">Orders</a></li>
-                    <li class="nav-item"><a class="nav-link cart" href="<?php echo dirname($_SERVER['PHP_SELF']); ?><?php if(dirname($_SERVER['PHP_SELF'])!=="/stinky"){echo "/..";} ?>/customer/cart.php">Cart</a></li>
-                    <?php if(isset($_SESSION['login_user'])){ ?><li class="nav-item"><a class="nav-link" href="<?php echo dirname($_SERVER['PHP_SELF']); ?><?php if(dirname($_SERVER['PHP_SELF'])!=="/stinky"){echo "/..";} ?>/customer/logout.php">Logout</a></li> <?php } ?>
-                </ul>
-            </div>
-            <div>
-    </nav>
+
+        </div>
+    </div>
+</nav>
 
 <!-- decoration the cart show the quantity of the selected products -->
 <?php
