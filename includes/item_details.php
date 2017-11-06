@@ -22,7 +22,7 @@
 <!-- Navigation -->
     <?php require_once('header.php'); ?>
 
-    <?php require_once('search_bar.php'); ?>
+
 
 <?php
 require_once('db.php');
@@ -35,10 +35,17 @@ if(isset($_GET['pid'])) {
     if($cnt == 1) {
         while ($row = mysqli_fetch_array($result)) {
             ?>
-            <div class="list text-center" id="drinks">
-                <div class="col">
-                    <div class="thumbnail"><img src="../images/<?php echo $row['img']; ?>" alt=" " class="" width="400px">
-                        <div class="caption">
+<div class="container">
+
+    <?php require_once('search_bar.php'); ?>
+
+
+    <!-- Portfolio Item Row -->
+<div class="row">
+    <div class="col">
+        <img src="../images/<?php echo $row['img']; ?>" alt=" " class="img-fluid" width="">
+    </div>
+    <div class="col">
                             <h3> <?php echo ucwords($row['name']); ?> </h3>
                             <p>Price: <?php echo $row['unit_price']; ?></p>
                             <!--<p>Store Inventory: <?php// echo $row['inventory']; ?></p> -->
@@ -80,35 +87,43 @@ if(isset($_GET['pid'])) {
                                     echo "btn-disable";
                                 } ?>" type="submit"> Add to Cart</button>
                             </form>
-
-
-                            <!-- suggestions or relative products with same brand and category -->
-                            <?php
-                            $sql2 = "Select * from products where brand = (SELECT brand from products WHERE id = '$pid') ";
-                            $sql2 .= "AND category_id = (SELECT category_id FROM products WHERE id = '$pid') ";
-                            $result2 = mysqli_query($con, $sql2);
-                            $cnt2 = mysqli_num_rows($result2);
-                            if($cnt2 != 1){
-                                echo "Suggestions:";
-                            }
-                            while ($cnt2 != 1 && $row2 = mysqli_fetch_array($result2)) {
-                                ?>
-                                <a <?php if ($row2['id'] == $pid) { ?> style="color: red; font-weight: bold"  <?php } ?>
-                                        href=item_details.php?pid=<?php echo $row2['id']; ?>
-                                        class="btn" <?php // if($cnt == 1) echo "hidden"; ?> >
-                                    <?php echo $row2['name']; ?>
-                                </a>
-                                <?php
-                            }
-                            mysqli_free_result($result2);
-
-
-                            ?>
                         </div>
+</div><!-- /.row -->
 
-                    </div>
-                </div>
-            </div>
+    <!-- Related Projects Row -->
+    <!-- suggestions or relative products with same brand and category -->
+    <?php
+    $sql2 = "Select * from products where brand = (SELECT brand from products WHERE id = '$pid') ";
+    $sql2 .= "AND category_id = (SELECT category_id FROM products WHERE id = '$pid') ";
+    $result2 = mysqli_query($con, $sql2);
+    $cnt2 = mysqli_num_rows($result2);
+    if($cnt2 != 1){?>
+
+    <h3 class="my-4">Related Projects</h3>
+
+    <div class="row">
+        <?php
+    }
+    while ($cnt2 != 1 && $row2 = mysqli_fetch_array($result2)) {
+        ?>
+        <div class="col">
+        <a <?php if ($row2['id'] == $pid) { ?> style="color: red; font-weight: bold"  <?php } ?>
+                href=item_details.php?pid=<?php echo $row2['id']; ?>
+                class="btn" <?php // if($cnt == 1) echo "hidden"; ?> >
+            <?php echo $row2['name']; ?>
+        </a>
+        </div>
+        <?php
+    }
+    mysqli_free_result($result2);
+
+
+    ?>
+
+
+
+</div>
+</div>
             <?php
         }
     }
