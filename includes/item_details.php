@@ -52,11 +52,11 @@ if(isset($_GET['pid'])) {
 
                             <?php
                             if ($row['inventory'] < 100 && $row['inventory'] > 0) {
-                                echo "<p>Only " . "<b>" . $row['inventory'] . "</b> left</p>";
+                                echo "<p class=\"text-warning\">Only " . "<b>" . $row['inventory'] . "</b> left</p>";
                             } elseif ($row['inventory'] >= 100) {
                                 echo "<p>In Stock</p>";
                             } else {
-                                echo "<p><label style='color: red; font-weight: bold'> Out of stock</label></p>";
+                                echo "<p class=\"text-danger\"><b>Out of Stock</b></p>";
                             } ?>
 
                             <?php if (!empty($row['size'])) {
