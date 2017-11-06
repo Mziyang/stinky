@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Nov 04, 2017 at 01:38 PM
+-- Generation Time: Nov 06, 2017 at 09:09 PM
 -- Server version: 10.1.25-MariaDB
 -- PHP Version: 5.6.31
 
@@ -75,7 +75,7 @@ CREATE TABLE `customers` (
 --
 
 INSERT INTO `customers` (`id`, `first_name`, `last_name`, `phone_number`, `address`, `email`, `password`, `register_date`, `active_date`) VALUES
-(1, 'Toby', 'Mao', '8618224081279', 'CDUT', '513945442@qq.com', '82bfd261c775a50ec038e1c75217eb93', '2017-10-14 14:35:23', '2017-11-04 10:47:10'),
+(1, 'Toby', 'Mao', '8618224081279', 'CDUT', '513945442@qq.com', '82bfd261c775a50ec038e1c75217eb93', '2017-10-14 14:35:23', '2017-11-07 03:09:51'),
 (2, 'Toby', 'Mao', '86182240812791', 'adsffds', '513945442qwqesd@qq.com', 'dd3a6d85aea3df0d5bfa80339e566aac', '2017-11-03 11:32:17', '2017-11-03 11:32:30');
 
 -- --------------------------------------------------------
@@ -154,17 +154,6 @@ CREATE TABLE `invoices` (
   `invoices_date` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
---
--- Dumping data for table `invoices`
---
-
-INSERT INTO `invoices` (`id`, `order_id`, `invoices_date`) VALUES
-(1, 2, '2017-10-14 19:31:37'),
-(2, 3, '2017-10-19 11:14:37'),
-(3, 5, '2017-11-01 23:40:11'),
-(4, 9, '2017-11-03 11:34:00'),
-(5, 10, '2017-11-03 11:35:24');
-
 -- --------------------------------------------------------
 
 --
@@ -182,19 +171,6 @@ CREATE TABLE `orders` (
   `status_id` tinyint(4) NOT NULL DEFAULT '0',
   `purchase_order_status_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `orders`
---
-
-INSERT INTO `orders` (`id`, `customer_id`, `order_date`, `required_date`, `ship_address`, `shipped_date`, `freight`, `status_id`, `purchase_order_status_id`) VALUES
-(1, 1, '2017-10-14 19:30:47', '2017-10-17 19:30:47', 'CDUT', NULL, 5.00, 1, 0),
-(2, 1, '2017-10-14 19:31:25', '2017-10-17 19:31:25', 'CDUT2', NULL, 5.00, 1, 0),
-(3, 1, '2017-10-19 11:13:43', '2017-10-22 11:13:43', 'CDUT', NULL, 5.00, 1, 0),
-(4, 1, '2017-11-01 23:39:06', '2017-11-04 23:39:06', 'new', NULL, 5.00, 1, 0),
-(5, 1, '2017-11-01 23:40:00', '2017-11-04 23:40:03', 'sdafadsaf', NULL, 5.00, 1, 0),
-(9, 2, '2017-11-03 11:33:16', '2017-11-06 11:33:28', 'CDUT', NULL, 5.00, 1, 0),
-(10, 2, '2017-11-03 11:35:20', NULL, NULL, NULL, 5.00, 1, 0);
 
 -- --------------------------------------------------------
 
@@ -234,21 +210,6 @@ CREATE TABLE `order_details` (
   `quantity` int(11) NOT NULL,
   `identifier_inventory` int(1) NOT NULL DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `order_details`
---
-
-INSERT INTO `order_details` (`id`, `order_id`, `product_id`, `temp_cutomer_id`, `order_details_status_id`, `unit_price`, `quantity`, `identifier_inventory`) VALUES
-(6, 1, 3, 1, 0, 3.00, 1, 1),
-(7, 1, 5, 1, 0, 2.00, 1, 1),
-(8, 2, 4, 1, 0, 2.00, 1, 1),
-(14, 3, 3, 1, 0, 3.00, 1, 1),
-(21, 4, 19, 1, 0, 0.00, 1, 1),
-(22, 4, 19, 1, 0, 0.00, 4, 1),
-(23, 5, 4, 1, 0, 2.00, 1, 1),
-(47, 9, 7, 2, 0, 2.00, 2, 1),
-(48, 10, 4, 2, 0, 2.00, 1, 1);
 
 -- --------------------------------------------------------
 
@@ -311,15 +272,15 @@ INSERT INTO `products` (`id`, `code`, `name`, `img`, `brand`, `category_id`, `fl
 (8, '8', '雀巢（Nestle） (丝滑拿铁)咖啡', '77.90 雀巢（Nestle） (丝滑拿铁)咖啡268ml*15瓶.jpg', '雀巢', 5, 'default', '268ml*15', '77.90 雀巢（Nestle） (丝滑拿铁)咖啡268ml*15瓶.jpg', 77.90, '2018-06-09', '2017-06-09', 77.90, 7),
 (9, '9', '红牛维生素功能饮料250ml', '135.00 红牛维生素功能饮料250ml*24罐 整箱.jpg', '红牛', 6, 'default', '250ml*24', '135.00 红牛维生素功能饮料250ml*24罐 整箱.jpg', 135.00, '2018-06-09', '2017-06-09', 135.00, 10),
 (10, '10', '红牛牛磺酸强化型饮料250ml', '149.00 红牛牛磺酸强化型饮料250ml*24罐 整箱.jpg', '红牛', 6, 'default', '250ml*24', '149.00 红牛牛磺酸强化型饮料250ml*24罐 整箱.jpg', 149.00, '2018-06-09', '2017-06-09', 149.00, 10),
-(11, '11', '士力架花生夹心巧克力', '13.9 士力架花生夹心巧克力（分享装）糖果巧克力休闲零食240g.jpg', '士力架', 8, 'default', '240g', '13.9 士力架花生夹心巧克力（分享装）糖果巧克力休闲零食240g.jpg', 13.90, '2018-11-04', '2017-11-04', 13.90, 9),
-(12, '12', '德芙Dove巧克力分享碗装', '29.90 德芙Dove巧克力分享碗装 丝滑牛奶巧克力糖果巧克力休闲零食252g.jpg', '德芙', 8, 'default', '252g', '29.90 德芙Dove巧克力分享碗装 丝滑牛奶巧克力糖果巧克力休闲零食252g.jpg', 29.90, '2018-11-04', '2017-11-04', 29.90, 4),
-(13, '13', '好时（Hershey’s）Kisses袋装散装', '45.90 好时（Hershey’s）Kisses袋装散装 牛奶巧克力(电商版红色) 糖果休闲零食500g.jpg', '好时', 8, 'default', '500g', '45.90 好时（Hershey’s）Kisses袋装散装 牛奶巧克力(电商版红色) 糖果休闲零食500g.jpg', 45.90, '2018-11-04', '2017-11-04', 45.90, 6),
-(14, '14', '伊利 安慕希希腊风味常温酸奶原味', '59.20 伊利 安慕希希腊风味常温酸奶原味205g*12盒 礼盒装.jpg', '伊利', 6, 'default', '205g*12', '59.20 伊利 安慕希希腊风味常温酸奶原味205g*12盒 礼盒装.jpg', 59.20, '2018-11-04', '2017-11-04', 59.20, 111),
+(11, '11', '士力架花生夹心巧克力', '13.9 士力架花生夹心巧克力（分享装）糖果巧克力休闲零食240g.jpg', '士力架', 8, 'default', '240g', '13.9 士力架花生夹心巧克力（分享装）糖果巧克力休闲零食240g.jpg', 13.90, '2018-11-04', '2017-11-04', 13.90, 4),
+(12, '12', '德芙Dove巧克力分享碗装', '29.90 德芙Dove巧克力分享碗装 丝滑牛奶巧克力糖果巧克力休闲零食252g.jpg', '德芙', 8, 'default', '252g', '29.90 德芙Dove巧克力分享碗装 丝滑牛奶巧克力糖果巧克力休闲零食252g.jpg', 29.90, '2018-11-04', '2017-11-04', 29.90, 0),
+(13, '13', '好时（Hershey’s）Kisses袋装散装', '45.90 好时（Hershey’s）Kisses袋装散装 牛奶巧克力(电商版红色) 糖果休闲零食500g.jpg', '好时', 8, 'default', '500g', '45.90 好时（Hershey’s）Kisses袋装散装 牛奶巧克力(电商版红色) 糖果休闲零食500g.jpg', 45.90, '2018-11-04', '2017-11-04', 45.90, 5),
+(14, '14', '伊利 安慕希希腊风味常温酸奶原味', '59.20 伊利 安慕希希腊风味常温酸奶原味205g*12盒 礼盒装.jpg', '伊利', 6, 'default', '205g*12', '59.20 伊利 安慕希希腊风味常温酸奶原味205g*12盒 礼盒装.jpg', 59.20, '2018-11-04', '2017-11-04', 59.20, 110),
 (15, '15', '京东海外直采 费列罗Ferrero Rocher榛子牛奶巧克力礼盒', '72.00 京东海外直采 费列罗Ferrero Rocher榛子牛奶巧克力礼盒30粒 意大利进口 375g.jpg', '费列罗', 8, 'default', '375g', '72.00 京东海外直采 费列罗Ferrero Rocher榛子牛奶巧克力礼盒30粒 意大利进口 375g.jpg', 72.00, '2018-11-04', '2017-11-04', 72.00, 55),
 (16, '16', '韩国进口 韩国农协 蜂蜜柚子茶', '42.90 韩国进口 韩国农协 蜂蜜柚子茶1000g.jpg', '韩国农协', 5, 'default', '1000g', '42.90 韩国进口 韩国农协 蜂蜜柚子茶1000g.jpg', 42.90, '2018-11-04', '2017-11-04', 42.90, 111),
 (17, '17', '果果贝瑞(GOGO BERRY) 加拿大进口 蜜饯果干 休闲零食 蓝莓干', '43.80 果果贝瑞(GOGO BERRY) 加拿大进口 蜜饯果干 休闲零食 蓝莓干100g袋.jpg', '果果贝瑞', 8, 'default', '100g', '43.80 果果贝瑞(GOGO BERRY) 加拿大进口 蜜饯果干 休闲零食 蓝莓干100g袋.jpg', 43.80, '2018-11-04', '2017-11-04', 43.80, 623),
 (18, '18', '印尼进口 Danisa 皇冠 丹麦 曲奇', '49.90 印尼进口 Danisa 皇冠 丹麦 曲奇 454g（新旧包装随机发货） 盒装.jpg', 'Danisa', 9, 'default', '454g', '49.90 印尼进口 Danisa 皇冠 丹麦 曲奇 454g（新旧包装随机发货） 盒装.jpg', 49.90, '2018-11-04', '2017-11-04', 49.90, 1245),
-(19, '19', '家乐氏 Kellogg’s 水果麦片 谷兰诺拉 草莓什锦', '52.80 家乐氏 Kellogg’s 水果麦片 谷兰诺拉 草莓什锦 即食谷物早餐 490g（35g*14小袋）.jpg', '家乐氏', 9, 'default', '35g*14袋', '52.80 家乐氏 Kellogg’s 水果麦片 谷兰诺拉 草莓什锦 即食谷物早餐 490g（35g*14小袋）.jpg', 52.80, '2018-11-04', '2017-11-04', 52.80, 1245),
+(19, '19', '家乐氏 Kellogg’s 水果麦片 谷兰诺拉 草莓什锦', '52.80 家乐氏 Kellogg’s 水果麦片 谷兰诺拉 草莓什锦 即食谷物早餐 490g（35g*14小袋）.jpg', '家乐氏', 9, 'default', '35g*14袋', '52.80 家乐氏 Kellogg’s 水果麦片 谷兰诺拉 草莓什锦 即食谷物早餐 490g（35g*14小袋）.jpg', 52.80, '2018-11-04', '2017-11-04', 52.80, 1243),
 (20, '20', '三匠苦荞茶官方旗舰店 黑苦荞茶全株茶', '53.00 三匠苦荞茶官方旗舰店 黑苦荞茶全株茶240克盒装 麦香型.jpg', '三匠', 5, '麦香', '240g盒', '53.00 三匠苦荞茶官方旗舰店 黑苦荞茶全株茶240克盒装 麦香型.jpg', 53.00, '2018-11-04', '2017-11-04', 53.00, 1245),
 (21, '21', '法国进口 雀巢（Nestle） 金牌咖啡法式烘焙', '69.00 法国进口 雀巢（Nestle） 金牌咖啡法式烘焙 100g.png', '雀巢', 5, 'default', '100g', '69.00 法国进口 雀巢（Nestle） 金牌咖啡法式烘焙 100g.png', 69.00, '2018-11-04', '2017-11-04', 69.00, 14),
 (22, '22', '美国进口优鲜沛Ocean Spray蔓越莓干', '69.00 美国进口优鲜沛Ocean Spray蔓越莓干1360g.jpg', 'new', 8, 'default', '1360g', '69.00 美国进口优鲜沛Ocean Spray蔓越莓干1360g.jpg', 69.00, '2018-11-04', '2017-11-04', 69.00, 145),
@@ -509,22 +470,22 @@ ALTER TABLE `department`
 -- AUTO_INCREMENT for table `employee`
 --
 ALTER TABLE `employee`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 --
 -- AUTO_INCREMENT for table `invoices`
 --
 ALTER TABLE `invoices`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT for table `orders`
 --
 ALTER TABLE `orders`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT for table `order_details`
 --
 ALTER TABLE `order_details`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=49;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT for table `products`
 --
