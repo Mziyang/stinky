@@ -13,11 +13,13 @@ elseif(isset($_GET['category_id'])){
 elseif (isset($_GET['restore_id'])){
     $id = $_GET['restore_id'];
 
-    //delete order
+    //delete order details first
+    $result2 = mysqli_query($con, "delete from order_details WHERE order_id = $id");
+
+    //then delete order
     $result = mysqli_query($con, "delete from orders where id = $id");
 
-    //delete order details
-    $result2 = mysqli_query($con, "delete from order_details WHERE order_id = $id");
+
 
     header("Location: ../customer/order.php");
 

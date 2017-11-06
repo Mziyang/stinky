@@ -32,7 +32,8 @@ if(isset($_GET['insert_order'])){
         //echo "Customer_ID:".$_SESSION['customer_id'];
 
         $cid = $_SESSION['customer_id'];
-//order date
+
+        //order date
         date_default_timezone_set('PRC');
         $order_date = date('Y-m-d H:i:s');
 
@@ -74,7 +75,13 @@ if(isset($_GET['insert_order'])){
 
 
 <?php
-$sql_order ="select * from orders WHERE status_id =(SELECT id FROM orders_status WHERE status_name = 'New')";
+//TODO sql should be added the customer id to identitfy
+echo $_SESSION['customer_id'];
+
+$cid = $_SESSION['customer_id'];
+
+$sql_order ="select * from orders WHERE status_id =(SELECT id FROM orders_status WHERE status_name = 'New') AND customer_id = $cid";
+
 $result_order = mysqli_query($con,$sql_order);
 $cnt = mysqli_num_rows($result_order);
 if($cnt == 0){
@@ -179,6 +186,55 @@ if(isset($_GET['complete_order'])){
 
 }
 mysqli_free_result($result_order);
+
+//View the invoiced order
+$sql_order_invoiced ="select * from orders WHERE status_id =(SELECT id FROM orders_status WHERE status_name = 'Invoiced') AND customer_id = $cid";
+
+$result_order_invoiced = mysqli_query($con,$sql_order_invoiced);
+$cnt_invoiced = mysqli_num_rows($result_order_invoiced);
+if($cnt_invoiced == 0){
+    echo "No invoiced order.";
+    ?>
+
+    <?php
+}
+else{?>
+
+
+
+<table>
+    <tr>
+        <th>Id</th>
+        <th>Order Date</th>
+        <th>Required Date</th>
+        <th>Ship Address</th>
+        <th>Freight</th>
+        <th>Action</th>
+    </tr>
+
+    <?php
+
+    while($row_order_invoiced = mysqli_fetch_array($result_order_invoiced) ){ ?>
+        <tr>
+            <td> <?php echo  $row_order_invoiced['id']; ?> </td>
+            <td> <?php echo  $row_order_invoiced['order_date']; ?> </td>
+            <td> <?php echo  $row_order_invoiced['required_date']; ?> </td>
+            <td> <?php echo  $row_order_invoiced['ship_address']; ?> </td>
+            <td> <?php echo  $row_order_invoiced['freight']; ?> </td>
+            <td><a href="order_details.php?oid=<?php echo $row_order_invoiced['id']; ?>" class="">Details</a></td>
+        </tr>
+<?php
+}
+?>
+</table>
+
+    <?php
+
+
+}?>
+
+<?php
+mysqli_free_result($result_order_invoiced);
 
 mysqli_close($con);
 
