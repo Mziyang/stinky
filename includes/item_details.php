@@ -47,14 +47,14 @@ if(isset($_GET['pid'])) {
     </div>
     <div class="col">
                             <h3> <?php echo ucwords($row['name']); ?> </h3>
-                            <p>Price: <?php echo $row['unit_price']; ?></p>
+                            <p>Price: <?php setlocale(LC_MONETARY,"en_US");echo money_format('%i',$row['unit_price']); ?></p>
                             <!--<p>Store Inventory: <?php// echo $row['inventory']; ?></p> -->
 
                             <?php
                             if ($row['inventory'] < 100 && $row['inventory'] > 0) {
                                 echo "<p>Only " . "<b>" . $row['inventory'] . "</b> left</p>";
                             } elseif ($row['inventory'] >= 100) {
-                                echo "<p>In stock</p>";
+                                echo "<p>In Stock</p>";
                             } else {
                                 echo "<p><label style='color: red; font-weight: bold'> Out of stock</label></p>";
                             } ?>
@@ -63,31 +63,31 @@ if(isset($_GET['pid'])) {
                                 echo "<p>Size: " . $row['size'] . "</p>";
                             } ?>
 
-                            <a href="../customer/cart.php?pid=<?php if ($row['inventory'] != 0) {
-                                echo $row['id'];
-                            } ?>&quantity=1"
-                               class="btn btn-outline-primary <?php if ($row['inventory'] == 0) {
-                                echo "disabled";
-                            } ?>">
-                                Select One
-                            </a>
+        <?php if ($row['inventory'] != 0) {?>
+            <a href="../customer/cart.php?pid=<?php echo $row['id']; ?>&quantity=1"
+               class="btn btn-outline-primary">Select One</a>
 
-                            <!-- option 2-->
-                            <form method="get" action="../customer/cart.php">
-                                <input name="pid" value="<?php echo $row['id'] ?>" hidden placeholder="">
-                                Qty:
-                                <input name="quantity" value="1" type="number" min="1"
-                                       max="<?php if ($row['inventory'] < 100) {
-                                           echo $row['inventory'];
-                                       } else {
-                                           echo "100";
-                                       } ?>" required placeholder="">
+            <!-- Option 2-->
 
-                                <button class="btn <?php if ($row['inventory'] == 0) {
-                                    echo "btn-disable";
-                                } ?>" type="submit"> Add to Cart</button>
-                            </form>
-                        </div>
+            <form method="get" action="../customer/cart.php">
+                <input name="pid" value="<?php echo $row['id'] ?>" hidden placeholder="">
+                Qty:
+                <input name="quantity" value="1" type="number" min="1"
+                       max="<?php if ($row['inventory'] < 100) {
+                           echo $row['inventory'];
+                       } else {
+                           echo "100";
+                       } ?>" required placeholder="" <?php if ($row['inventory'] == 0) {
+                    echo "hidden";
+                } ?>>
+
+                <button class="btn" <?php if ($row['inventory'] == 0) {
+                    echo "disabled";
+                } ?> type="submit"> Add to Cart</button>
+            </form>
+            <?php
+        } ?>
+    </div>
 </div><!-- /.row -->
 
     <!-- Related Projects Row -->
