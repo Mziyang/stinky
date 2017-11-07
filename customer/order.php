@@ -75,8 +75,8 @@ if(isset($_GET['insert_order'])){
 
 
 <?php
-//TODO sql should be added the customer id to identitfy
-echo $_SESSION['customer_id'];
+//sql should be added the customer id to identify
+//echo $_SESSION['customer_id'];
 
 $cid = $_SESSION['customer_id'];
 
@@ -161,7 +161,7 @@ if(isset($_GET['complete_order'])){
             //end
 
         $sql_complete = "update orders set required_date = '$update_required_date', ship_address = '$update_ship_address' WHERE customer_id = $cid_new AND id = $oid_again AND order_date = '$od'";
-        echo $sql_complete;
+//        echo $sql_complete;
         $result_complete = mysqli_query($con, $sql_complete);
         //echo $sql_complete;
 
