@@ -33,9 +33,6 @@
 
 
 
-    <!-- Search -->
-    <?php require_once(dirname(__FILE__) . '/includes/search_bar.php'); ?>
-
 
 
     <!-- product list -->

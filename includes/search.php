@@ -10,11 +10,8 @@
 <body>
 
 
-<div class="container">
-    <?php require_once(dirname(__FILE__) . '/header.php'); ?>
+<?php require_once(dirname(__FILE__) . '/header.php'); ?>
 
-    <?php require_once('search_bar.php'); ?>
-</div>
 
 <?php
 

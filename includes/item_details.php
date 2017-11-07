@@ -37,7 +37,6 @@ if(isset($_GET['pid'])) {
             ?>
 <div class="container">
 
-    <?php require_once('search_bar.php'); ?>
 
 
     <!-- Portfolio Item Row -->
