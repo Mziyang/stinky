@@ -41,8 +41,9 @@
                 <?php } ?>
             </ul>
 
-
+            <?php require_once ('search_bar.php'); ?>
         </div>
+
     </div>
 </nav>
 
