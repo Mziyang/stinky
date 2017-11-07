@@ -10,16 +10,35 @@
                 <?php if(empty(session_id())){ session_start();} if(empty($_SESSION['login_user'])){ ?> <li class="nav-item"><a class="nav-link" href="<?php echo dirname($_SERVER['PHP_SELF']); ?><?php if(dirname($_SERVER['PHP_SELF'])!=="/stinky"){echo "/..";}?>/customer/login.php">Login</a></li> <?php }
                 else { ?>
                     <li class="nav-item login_last"></li>
-                    <li class="nav-item"><a class="nav-link" href="<?php echo dirname($_SERVER['PHP_SELF']); ?><?php if(dirname($_SERVER['PHP_SELF'])!=="/stinky"){echo "/..";} ?>/customer/profile.php"><?php echo $_SESSION['login_user']; ?> </a></li>
                     <?php
                 }
                 ?>
 
                 <?php if(empty($_SESSION['login_user'])){ ?><li class="nav-item"><a class="nav-link" href="<?php echo dirname($_SERVER['PHP_SELF']); ?><?php if(dirname($_SERVER['PHP_SELF'])!=="/stinky"){echo "/..";} ?>/customer/register.php">Register</a></li>  <?php } ?>
-                <li class="nav-item"><a class="nav-link" href="<?php echo dirname($_SERVER['PHP_SELF']); ?><?php if(dirname($_SERVER['PHP_SELF'])!=="/stinky"){echo "/..";} ?>/customer/profile.php">Profile</a></li>
                 <li class="nav-item"><a class="nav-link" href="<?php echo dirname($_SERVER['PHP_SELF']); ?><?php if(dirname($_SERVER['PHP_SELF'])!=="/stinky"){echo "/..";} ?>/customer/order.php">Orders</a></li>
                 <li class="nav-item"><a class="nav-link cart" href="<?php echo dirname($_SERVER['PHP_SELF']); ?><?php if(dirname($_SERVER['PHP_SELF'])!=="/stinky"){echo "/..";} ?>/customer/cart.php">Cart</a></li>
-                <?php if(isset($_SESSION['login_user'])){ ?><li class="nav-item"><a class="nav-link" href="<?php echo dirname($_SERVER['PHP_SELF']); ?><?php if(dirname($_SERVER['PHP_SELF'])!=="/stinky"){echo "/..";} ?>/customer/logout.php">Logout</a></li> <?php } ?>
+                <!-- Drop Down -->
+
+                <?php if(empty(session_id())){ session_start();} if(empty($_SESSION['login_user'])){ ?>
+
+
+                <?php }else{ ?>
+
+
+                    <li class="nav-item">
+                        <div class="dropdown">
+                            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <?php echo $_SESSION['login_user']; ?>
+                            </button>
+                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                <a class="dropdown-item" href="<?php echo dirname($_SERVER['PHP_SELF']); ?><?php if(dirname($_SERVER['PHP_SELF'])!=="/stinky"){echo "/..";} ?>/customer/profile.php">Profile</a>
+                                <a class="dropdown-item" href="<?php echo dirname($_SERVER['PHP_SELF']); ?><?php if(dirname($_SERVER['PHP_SELF'])!=="/stinky"){echo "/..";} ?>/customer/reset_password.php">Reset PWD</a>
+                                <a class="dropdown-item" href="<?php echo dirname($_SERVER['PHP_SELF']); ?><?php if(dirname($_SERVER['PHP_SELF'])!=="/stinky"){echo "/..";} ?>/customer/logout.php">Logout</a>
+                            </div>
+                        </div>
+                    </li>
+
+                <?php } ?>
             </ul>
 
 
