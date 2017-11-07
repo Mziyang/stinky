@@ -62,6 +62,9 @@ if(isset($_GET['pid'])) {
                             <?php if (!empty($row['size'])) {
                                 echo "<p>Size: " . $row['size'] . "</p>";
                             } ?>
+        <?php if (!empty($row['description'])) {
+            echo "<p>Description: " . $row['description'] . "</p>";
+        } ?>
 
         <?php if ($row['inventory'] != 0) {?>
             <a href="../customer/cart.php?pid=<?php echo $row['id']; ?>&quantity=1"
