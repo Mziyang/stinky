@@ -44,7 +44,7 @@ Category:<select name="category_id">
         require_once('../includes/db.php');
 
         //get two main types of products(drinks and snacks)
-        $result_type = mysqli_query($con, "select name from categories where referto = 0");
+        $result_type = mysqli_query($con, "select name from categories where referto = id");
         while($row_type = mysqli_fetch_array($result_type)){
             ?>
 

@@ -18,7 +18,7 @@ if(isset($_GET['main_type_id'])&&isset($_GET['category_name'])&&isset($_GET['cat
         Main Type:
         <select name="main_type_id">
             <?php
-            $result_type = mysqli_query($con, "select id, name from categories where referto = 0");
+            $result_type = mysqli_query($con, "select id, name from categories where referto = id");
             while($row_type = mysqli_fetch_array($result_type)){
                 //echo $row_type['name'];
                 //echo "<br>";
