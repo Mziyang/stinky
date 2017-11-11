@@ -130,14 +130,14 @@ if(isset($_GET['pid'])) {
         }
     }
     else{
-        header("Location:index.php");
+        header("Location:../index.php");
     }
     /* free result set */
     mysqli_free_result($result);
 }
 
 else{
-   header("Location:index.php");
+   header("Location:../index.php");
 }
 
 /* close connection */
