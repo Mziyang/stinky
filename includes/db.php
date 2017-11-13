@@ -9,7 +9,7 @@ if (
         " (" . mysqli_connect_errno() . ")"
     );
 }
-
+//Multilingual supports
 mysqli_query($con,"SET NAMES 'UTF8'");
 ?>
 
