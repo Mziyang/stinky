@@ -50,7 +50,7 @@ GROUP BY order_details.product_id";
 
 //echo $sql."<br>";
 $result = mysqli_query($con, $sql);
-echo "<h1></h1>";
+echo "<h1>Monthly Selling Report</h1>";
 echo "Time: From ". $last_month ." To ". $date_now . "<br>";
 if(mysqli_num_rows($result) == 0){
     echo "No Results between $last_month and $date_now.";
@@ -69,8 +69,6 @@ else {
     echo "Grand Total: ".money_format('%i',$total);
 }
 mysqli_free_result($result);
-
-
 ?>
 
 <form action="sale_reports.php" method="get">
@@ -89,6 +87,8 @@ mysqli_free_result($result);
 <div style="width: 488px">
     <canvas id="myChart"></canvas>
 </div>
+
+
 <script>
     var ctx = document.getElementById('myChart').getContext('2d');
     var chart = new Chart(ctx, {
@@ -96,6 +96,7 @@ mysqli_free_result($result);
         type: 'horizontalBar',
 
         // The data for our dataset
+        // name	product_id	Qty	Total
         data: {
             labels: ["January", "February", "March", "April", "May", "June", "July"],
             datasets: [
