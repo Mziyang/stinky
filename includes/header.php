@@ -7,12 +7,7 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarResponsive">
             <ul class="navbar-nav ml-auto">
-                <?php if(empty(session_id())){ session_start();} if(empty($_SESSION['login_user'])){ ?> <li class="nav-item"><a class="nav-link" href="<?php echo dirname($_SERVER['PHP_SELF']); ?><?php if(dirname($_SERVER['PHP_SELF'])!=="/stinky"){echo "/..";}?>/customer/login.php">Login</a></li> <?php }
-                else { ?>
-                    <li class="nav-item login_last"></li>
-                    <?php
-                }
-                ?>
+                <?php if(empty(session_id())){ session_start();} if(empty($_SESSION['login_user'])){ ?> <li class="nav-item"><a class="nav-link" href="<?php echo dirname($_SERVER['PHP_SELF']); ?><?php if(dirname($_SERVER['PHP_SELF'])!=="/stinky"){echo "/..";}?>/customer/login.php">Login</a></li> <?php } ?>
 
                 <?php if(empty($_SESSION['login_user'])){ ?><li class="nav-item"><a class="nav-link" href="<?php echo dirname($_SERVER['PHP_SELF']); ?><?php if(dirname($_SERVER['PHP_SELF'])!=="/stinky"){echo "/..";} ?>/customer/register.php">Register</a></li>  <?php } ?>
                 <li class="nav-item"><a class="nav-link" href="<?php echo dirname($_SERVER['PHP_SELF']); ?><?php if(dirname($_SERVER['PHP_SELF'])!=="/stinky"){echo "/..";} ?>/customer/order.php">Orders</a></li>
@@ -31,6 +26,12 @@
                                 <?php echo $_SESSION['login_user']; ?>
                             </button>
                             <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                <a class="dropdown-item" href="#"><?php
+                                    //echo last login time
+                                    if(isset($_SESSION['last_login'])){echo "Last loin at: ".$_SESSION['last_login'];}
+                                    //end
+                                    ?></a>
+                                <div class="dropdown-divider"></div>
                                 <a class="dropdown-item" href="<?php echo dirname($_SERVER['PHP_SELF']); ?><?php if(dirname($_SERVER['PHP_SELF'])!=="/stinky"){echo "/..";} ?>/customer/profile.php">Profile</a>
                                 <a class="dropdown-item" href="<?php echo dirname($_SERVER['PHP_SELF']); ?><?php if(dirname($_SERVER['PHP_SELF'])!=="/stinky"){echo "/..";} ?>/customer/reset_password.php">Reset PWD</a>
                                 <a class="dropdown-item" href="<?php echo dirname($_SERVER['PHP_SELF']); ?><?php if(dirname($_SERVER['PHP_SELF'])!=="/stinky"){echo "/..";} ?>/customer/logout.php">Logout</a>
@@ -91,29 +92,11 @@ $row_qty = mysqli_fetch_array($result_qty);
 
     <?php }
 
-    //echo last login time
-    if(isset($_SESSION['last_login'])){
 
-        ?>
-        <style>
-            .login_last::before{
-                content: "<?php echo "Last loin at: ".$_SESSION['last_login']; ?>";
-                color: white;
-            }
-
-        </style>
-        <?php
-    }
-    //end
 
 mysqli_free_result($result_qty);
 
 
 }
-//echo "new";
-//echo $_SERVER['PHP_SELF'];
-//echo "<br>new";
-//echo dirname(__FILE__);
-//echo "<br>new";
-//echo dirname($_SERVER['PHP_SELF']);
+
 ?>
