@@ -109,14 +109,14 @@ mysqli_free_result($result);
 
                 },
 
-//                {
-//                    label: "My Second dataset",
-//                    backgroundColor: 'yellow',
-//                    borderColor: 'rgb(250, 199, 132)',
-//                    fill: false,
-//                    data: [-5, 10, 15, 20, 25, 35, 30],
-//
-//                }
+                {
+                    label: "My Second dataset",
+                    backgroundColor: 'skyblue',
+                    borderColor: 'rgb(250, 199, 132)',
+                    fill: false,
+                    data: [5, 10, 15, 20, 25, 35, 30],
+
+                }
 
             ]
         },
