@@ -13,8 +13,8 @@ if(isset($_GET['time_start'])&&isset($_GET['time_end'])){
 
 }
 //right now it is difficult to update orders.shipped_date, use order date or invoices_date instead.
-$sql = "
-SELECT products.name , mytable.product_id, mytable.Qty, mytable.Total
+$sql =
+"SELECT products.name , mytable.product_id, mytable.Qty, mytable.Total
 FROM products INNER JOIN
 (SELECT order_details.product_id, SUM(order_details.quantity) AS Qty,
 SUM(order_details.unit_price * order_details.quantity) AS Total FROM orders
