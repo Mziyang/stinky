@@ -1,7 +1,7 @@
 <!-- search function -->
-<form class="form-inline" method="get" action="<?php if($_SERVER['PHP_SELF'] == "/stinky/index.php"){ echo "includes/";} ?>search.php">
+<form class="form-inline my-2 my-lg-0" method="get" action="<?php if($_SERVER['PHP_SELF'] == "/stinky/index.php"){ echo "includes/";} ?>search.php">
     <div class="input-group">
-        <input class="form-control mr-sm-2" type="search" name="keyword" placeholder="Product Name" aria-label="Search"
+        <input class="form-control mr-sm-2" type="text" name="keyword" placeholder="Search" aria-label="Search"
                value="<?php if(isset($_GET['keyword'])) { echo $_GET['keyword']; } ?>" required>
         <span class="input-group-btn">
             <button type="submit" class="btn btn-outline-success my-2 my-sm-0">Search</button>

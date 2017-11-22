@@ -20,22 +20,20 @@
                 <?php }else{ ?>
 
 
-                    <li class="nav-item">
-                        <div class="dropdown">
-                            <button class="btn btn-dark dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <?php echo $_SESSION['login_user']; ?>
-                            </button>
-                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                <a class="dropdown-item" href="#"><?php
-                                    //echo last login time
-                                    if(isset($_SESSION['last_login'])){echo "Last loin at: ".$_SESSION['last_login'];}
-                                    //end
-                                    ?></a>
-                                <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="<?php echo dirname($_SERVER['PHP_SELF']); ?><?php if(dirname($_SERVER['PHP_SELF'])!=="/stinky"){echo "/..";} ?>/customer/profile.php">Profile</a>
-                                <a class="dropdown-item" href="<?php echo dirname($_SERVER['PHP_SELF']); ?><?php if(dirname($_SERVER['PHP_SELF'])!=="/stinky"){echo "/..";} ?>/customer/reset_password.php">Reset PWD</a>
-                                <a class="dropdown-item" href="<?php echo dirname($_SERVER['PHP_SELF']); ?><?php if(dirname($_SERVER['PHP_SELF'])!=="/stinky"){echo "/..";} ?>/customer/logout.php">Logout</a>
-                            </div>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <?php echo $_SESSION['login_user']; ?>
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="dropdown01">
+                            <a class="dropdown-item" href="#"><?php
+                               //echo last login time
+                               if(isset($_SESSION['last_login'])){echo "Last loin at: ".$_SESSION['last_login'];}
+                               //end
+                               ?></a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="<?php echo dirname($_SERVER['PHP_SELF']); ?><?php if(dirname($_SERVER['PHP_SELF'])!=="/stinky"){echo "/..";} ?>/customer/profile.php">Profile</a>
+                            <a class="dropdown-item" href="<?php echo dirname($_SERVER['PHP_SELF']); ?><?php if(dirname($_SERVER['PHP_SELF'])!=="/stinky"){echo "/..";} ?>/customer/reset_password.php">Reset PWD</a>
+                            <a class="dropdown-item" href="<?php echo dirname($_SERVER['PHP_SELF']); ?><?php if(dirname($_SERVER['PHP_SELF'])!=="/stinky"){echo "/..";} ?>/customer/logout.php">Logout</a>
                         </div>
                     </li>
 
