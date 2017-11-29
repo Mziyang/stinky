@@ -82,7 +82,7 @@ if (isset($_POST['submit'])) {
         else {
             echo "<b style='color: deeppink;'>Passwords didn't match.</b>";
         }
-    } else {echo"<b style='color: red;>Fill all in the blanks</b>";}
+    } else {echo"<b style='color: red;'>Fill all in the blanks</b>";}
 }
 else echo "Welcome! Fill all blanks to register.";
 mysqli_close($con);
