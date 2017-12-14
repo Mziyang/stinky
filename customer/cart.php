@@ -11,7 +11,7 @@
     <title>Shopping Cart</title>
     
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
     <!-- My CSS -->
     <!--    <link href="css/main.css" rel="stylesheet" type="text/css">-->
     <link href="../css/style.css" rel="stylesheet">
@@ -93,7 +93,13 @@ $result_cart = mysqli_query($con,$sql_cart);
 
 
 $cnt = mysqli_num_rows($result_cart);
-if($cnt == 0){ echo "Cart is empty!";?> <a href="../index.php">Go back to home page</a> <?php }
+if($cnt == 0){?>
+
+    <div class="alert alert-warning" role="alert">
+        Cart is empty! <a href="../index.php" class="alert-link">Go back to home page</a>
+    </div>
+
+<?php }
 else{
     $subtotal = 0;
     while($row_cart = mysqli_fetch_array($result_cart)){
@@ -136,8 +142,7 @@ else{
         </form>
         <?php
 
-
-        setlocale(LC_MONETARY, 'en_US');
+        setlocale(LC_ALL,"zh_CN");
         echo "subtotal: ".money_format('%i',$row_cart['unit_price'] * $row_cart['quantity']);
         ?>
         <a class="btn btn-outline-primary" href='../includes/deletion.php?cart_id=<?php echo $row_cart['id'] ?>'>Delete</a>
@@ -149,7 +154,7 @@ else{
         //prepare total if order table has total field.
         //$_SESSION['total'] = $subtotal;
     }
-    setlocale(LC_MONETARY,"en_US");
+    setlocale(LC_ALL,"zh_CN");
     echo "Grand Total: ".money_format('%i',$subtotal);
     ?>
     <a href="order.php?insert_order=1" class="btn btn-outline-primary">Place order</a>
@@ -164,10 +169,10 @@ mysqli_close($con);
 
 <!-- Optional JavaScript -->
 <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+<script src="../js/jquery.min.js"></script>
+<script src="../js/popper.min.js"></script>
+<script src="../js/bootstrap.min.js"></script>
 
-<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
 </body>
 </html>
 

@@ -14,7 +14,7 @@
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <!-- My CSS -->
 <!--    <link href="css/main.css" rel="stylesheet" type="text/css">-->
-    <link href="css/style.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet" type="text/css">
 
 </head>
 <body>
@@ -57,7 +57,7 @@
                  </a>
                  <div class="card-body">
                      <h3 class="card-title"><?php echo $row['name']; ?></h3>
-                     <p>Price: <?php setlocale(LC_MONETARY,"en_US");echo money_format('%i',$row['unit_price']); ?></p>
+                     <p>Price: <?php setlocale(LC_ALL,"zh_CN"); echo money_format('%i',$row['unit_price']); ?></p>
                      <p><a href="includes/jump.php?msg=added_to_cart&jump=index&pid=<?php echo $row['id']; ?>" class="btn btn-outline-primary">Add to Cart</a>
                          <a href="includes/item_details.php?pid=<?php echo $row['id']; ?>" class="btn btn-outline-primary">Buy</a>
                      </p>

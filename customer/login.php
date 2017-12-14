@@ -13,7 +13,10 @@
 
 
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+
+    <!-- Customer CSS -->
+    <link href="../css/login.css" rel="stylesheet">
 
 </head>
 <body>
@@ -99,14 +102,11 @@ if(!empty($_POST['email'])&&!empty($_POST['password'])) {
 
 <div class="container">
     <div class="row">
-        <div class="col-md-4 col-md-offset-4">
-            <div class="login-panel panel panel-default">
-                <div class="panel-heading">
-                    <h3 class="panel-title">Please Sign In</h3>
-                </div>
-                <div class="panel-body">
+        <div class="card card-login mx-auto mt-5">
+            <div class="card-header text-center">Please Sign In</div>
+
+            <div class="card-body">
                     <form role="form" action="login.php" method="post">
-                        <fieldset>
                             <div class="form-group">
                                 <input class="form-control" placeholder="E-mail" name="email" type="email" value="<?php
                                 if(!session_id()){ session_start();}
@@ -117,26 +117,29 @@ if(!empty($_POST['email'])&&!empty($_POST['password'])) {
                             <div class="form-group">
                                 <input class="form-control" placeholder="Password" name="password" type="password" minlength="8" maxlength="32" value="" required>
                             </div>
-<!--                            <div class="checkbox">-->
-<!--                                <label>-->
-<!--                                    <input name="remember" type="checkbox" value="Remember Me">Remember Me-->
-<!--                                </label>-->
-<!--                            </div>-->
-                            <button type="submit" class="btn btn-lg btn-success btn-block">Login</button>
-                        </fieldset>
+                            <div class="checkbox">
+                                <label>
+                                    <input name="remember" type="checkbox" value="Remember Me">Remember Me
+                                </label>
+                            </div>
+                            <button type="submit" class="btn btn-success btn-block">Login</button>
                     </form>
+                <div class="text-center">
+                    <a class="d-block small mt-3" href="../admin/admin_login.php" >Admin?</a>
+                    <a class="d-block small" href="register.php">Register an Account</a>
+                    <a class="d-block small" href="reset_password.php">Forgot Password?</a>
                 </div>
+
             </div>
-            <a href="../admin/admin_login.php" class="btn btn-outline-secondary">Admin?</a>
-
-            <a href="reset_password.php" class="btn btn-outline-warning">Forget Password?</a>
-
-            <a href="register.php" class="btn btn-outline-success">Join Us</a>
-
         </div>
-    </div>
 
+
+    </div>
 </div>
+
+
+
+
 
 
 
@@ -144,9 +147,9 @@ if(!empty($_POST['email'])&&!empty($_POST['password'])) {
 
 <!-- Optional JavaScript -->
 <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
+<script src="../js/jquery.min.js"></script>
+<script src="../js/popper.min.js"></script>
+<script src="../js/bootstrap.min.js"></script>
 
 </body>
 </html>

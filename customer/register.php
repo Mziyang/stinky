@@ -11,7 +11,7 @@
     <title>Welcome to Stinky Store Ltd!</title>
 
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+    <link rel="stylesheet" href="../css/bootstrap.min.css"">
     <!-- My CSS -->
     <!--    <link href="css/main.css" rel="stylesheet" type="text/css">-->
     <link href="../css/style.css" rel="stylesheet">
@@ -24,7 +24,7 @@
 
 
 <?php
-require('../includes/db.php');
+require_once('../includes/db.php');
 if (isset($_POST['submit'])) {
     if (!empty($_POST['first_name'])&&
         !empty($_POST['last_name'])&&
@@ -84,22 +84,75 @@ if (isset($_POST['submit'])) {
         }
     } else {echo"<b style='color: red;'>Fill all in the blanks</b>";}
 }
-else echo "Welcome! Fill all blanks to register.";
+else{ ?>
+    <div class="alert alert-primary text-center" role="alert">
+        Welcome! Fill all blanks to register.
+    </div>
+<?php }
 mysqli_close($con);
 ?>
-<form action="register.php" method="POST">
-    <label style="background-color: chartreuse;"> First Name:</label><input type="text" name="first_name" value="<?php if(isset($_POST['first_name'])){echo $_POST['first_name'];} ?>" autofocus><br>
-    <label style="background-color: chartreuse;">Last Name:</label><input type="text" name="last_name" value="<?php if(isset($_POST['last_name'])){echo $_POST['last_name'];} ?>"><br>
-    <label style="background-color: chartreuse;">Address:</label><input  type="text" name="address" value="<?php if(isset($_POST['address'])){echo $_POST['address'];} ?>"><br/>
-    <label>E-mail:</label><input style="background-color: deepskyblue;" type="email" name="email" value="<?php if(isset($_POST['email'])){echo $_POST['email'];} ?>"><br/>
-    <label>Phone Number:</label><input style="background-color: deepskyblue;" type="text" name="phone_number" value="<?php if(isset($_POST['phone_number'])){echo $_POST['phone_number'];} ?>"><br>
-    <label>Password:</label><input type="password" minlength="8" maxlength="32" name="password" value="<?php if(isset($_POST['password'])){echo $_POST['password'];} ?>"><br>
-    <label>Confirm Password:</label><input type="password" minlength="8" maxlength="32" name="re-password" value="<?php if(isset($_POST['re-password'])){echo $_POST['re-password'];} ?>"><br>
-    <input type="submit" name="submit" value="Sign Up">
-</form>
-Already on Stinky Store?<a href = "login.php">Sign in</a><br>
-<a href="../index.php">Back to home</a>
+<div class="container">
+    <div class="row">
+        <div class="card card-login mx-auto">
+            <div class="card-header text-center">Register</div>
 
+            <div class="card-body">
+
+                <form action="register.php" method="POST">
+                    <div class="form-row">
+
+                        <div class="form-group col-md-6">
+                        <label for="fname">First Name:</label>
+                        <input id="fname" class="form-control" type="text" name="first_name" value="<?php if(isset($_POST['first_name'])){echo $_POST['first_name'];} ?>" autofocus>
+                        </div>
+
+                        <div class="form-group col-md-6">
+                        <label for="lname">Last Name:</label>
+                        <input id="lname" class="form-control" type="text" name="last_name" value="<?php if(isset($_POST['last_name'])){echo $_POST['last_name'];} ?>">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                    <label for="address">Address:</label>
+                    <input id="address" class="form-control" type="text" name="address" value="<?php if(isset($_POST['address'])){echo $_POST['address'];} ?>">
+                    </div>
+
+                    <div class="form-row">
+
+                        <div class="form-group col-md-6">
+                        <label for="email">E-mail:</label>
+                        <input id="email" class="form-control" type="email" name="email" value="<?php if(isset($_POST['email'])){echo $_POST['email'];} ?>">
+                        </div>
+
+                        <div class="form-group col-md-6">
+                        <label for="phone">Phone Number:</label>
+                        <input id="phone" class="form-control" type="text" name="phone_number" value="<?php if(isset($_POST['phone_number'])){echo $_POST['phone_number'];} ?>">
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+
+                        <div class="form-group col-md-6">
+                        <label for="pwd">Password:</label>
+                        <input id="pwd" class="form-control" type="password" minlength="8" maxlength="32" name="password" value="<?php if(isset($_POST['password'])){echo $_POST['password'];} ?>">
+                        </div>
+
+                        <div class="form-group col-md-6">
+                        <label for="cpwd">Confirm Password:</label>
+                        <input id="cpwd" class="form-control" type="password" minlength="8" maxlength="32" name="re-password" value="<?php if(isset($_POST['re-password'])){echo $_POST['re-password'];} ?>">
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-block">Sign Up</button>
+                </form>
+
+                <div class="text-center">
+                    <a class="d-block small mt-3" href="login.php" >Already on Stinky Store? Sign in</a>
+                    <a class="d-block small" href="../index.php">Back to home</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 
 
 <!-- Footer -->
@@ -107,10 +160,9 @@ Already on Stinky Store?<a href = "login.php">Sign in</a><br>
 
 <!-- Optional JavaScript -->
 <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
-
+<script src="../js/jquery.min.js"></script>
+<script src="../js/popper.min.js"></script>
+<script src="../js/bootstrap.min.js"></script>
 
 </body>
 </html>

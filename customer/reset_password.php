@@ -1,3 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Login</title>
+
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+
+    <!-- Customer CSS -->
+<!--    <link href="../css/main.css" rel="stylesheet" type="text/css">-->
+</head>
+<body>
+
 <?php
 require('../includes/db.php');
 if (isset($_POST['submit'])) {
@@ -59,19 +81,56 @@ else{
 
 ?>
 
-<link href="../css/main.css" rel="stylesheet" type="text/css">
 
-<form action="#" method="post" class="text-center">
+<div class="container">
     <div class="row">
-    <p>Phone Number: <input type="text" name="phone_number" placeholder="Registered Phone number" value="<?php if(isset($_POST['phone_number'])){echo $_POST['phone_number'];} ?>"</p><br>
-    Registered Email: <input type="text" name="email" placeholder="Registered email" value="<?php if(isset($_POST['email'])){echo $_POST['email'];} ?>"><br>
-    New Password: <input type="password" name="password" placeholder="New password" value="<?php if(isset($_POST['password'])){echo $_POST['password'];} ?>"><br>
-    Confirm Your Password: <input type="password" name="re-password" placeholder="Retype your password" value="<?php if(isset($_POST['re-password'])){echo $_POST['re-password'];} ?>"><br>
-    <input type="submit" name="submit" value="Update password">
+        <div class="card card-login mx-auto mt-5">
+            <div class="card-header text-center">Please </div>
+
+            <div class="card-body">
+
+                <form action="#" method="post" class="text-center">
+
+                        <div class="form-group">
+                        <label for="phone_no">Phone Number:</label>
+                        <input id="phone_no" type="text" name="phone_number" placeholder="Registered Phone number" value="<?php if(isset($_POST['phone_number'])){echo $_POST['phone_number'];} ?>">
+                        </div>
+
+                        <div class="form-group">
+                        <label for="email">Registered Email</label>
+                        <input id="email" type="text" name="email" placeholder="Registered email" value="<?php if(isset($_POST['email'])){echo $_POST['email'];} ?>">
+                        </div>
+
+                        <div class="form-group">
+                        <label for="pwd">New Password:</label>
+                        <input id="pwd" type="password" name="password" placeholder="New password" value="<?php if(isset($_POST['password'])){echo $_POST['password'];} ?>"><br>
+                        </div>
+
+                        <div class="form-group">
+                        <label for="2pwd">Confirm Your Password:</label>
+                        <input id="2pwd" type="password" name="re-password" placeholder="Retype your password" value="<?php if(isset($_POST['re-password'])){echo $_POST['re-password'];} ?>"><br>
+                        </div>
+
+                        <div class="form-group">
+                        <input type="submit" name="submit" value="Update password">
+                        </div>
+                </form>
+
+                <div class="text-center">
+                    <a class="d-block small mt-3" href="login.php" >Go to login page</a>
+                </div>
+
+            </div>
+        </div>
     </div>
-</form>
-
-<a href="login.php">go to login page</a>
+</div>
 
 
+<!-- Optional JavaScript -->
+<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+<script src="../js/jquery.min.js"></script>
+<script src="../js/popper.min.js"></script>
+<script src="../js/bootstrap.min.js"></script>
 
+</body>
+</html>
