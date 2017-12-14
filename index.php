@@ -1,23 +1,24 @@
 <!doctype html>
 <html lang="en">
 <head>
-
-    <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
+    <link rel="icon" href="favicon.ico">
 
     <title>Welcome to Stinky Store Ltd!</title>
 
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="css/bootstrap.min.css">
-    <!-- My CSS -->
-<!--    <link href="css/main.css" rel="stylesheet" type="text/css">-->
-    <link href="css/style.css" rel="stylesheet" type="text/css">
+    <!-- Bootstrap core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
 
+    <!-- Custom styles for this template -->
+    <link href="" rel="stylesheet">
 </head>
+
 <body>
+
+
 
 <!-- Navigation -->
 <?php require_once(dirname(__FILE__) . '/includes/header.php'); ?>
@@ -80,11 +81,13 @@
 <!-- Footer -->
 <?php require_once(dirname(__FILE__) .'/includes/footer.php') ?>
 
-<!-- Optional JavaScript -->
-<!-- jQuery first, then Popper.js, then Bootstrap JS -->
-<script src="js/jquery.min.js"></script>
+<!-- Bootstrap core JavaScript -->
+<!-- Placed at the end of the document so the pages load faster -->
+<script src="js/jquery-slim.min.js"></script>
+<script>window.jQuery || document.write('<script src="/js/jquery.min.js"><\/script>')</script>
 <script src="js/popper.min.js"></script>
-<script src="js/bootstrap.min.js" crossorigin="anonymous"></script>
-
+<script src="js/bootstrap.min.js"></script>
+<!-- Additional JavaScript -->
+<script src=""></script>
 </body>
 </html>
