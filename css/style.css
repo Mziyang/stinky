@@ -10,7 +10,7 @@ html {
     min-height: 100%;
 }
 body {
-    padding-top: 54px;
+    margin-top: 56px;
     margin-bottom: 60px; /* Margin bottom by footer height */
 }
 .footer {
